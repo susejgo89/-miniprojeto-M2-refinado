@@ -28,3 +28,6 @@ dist/
 # Sistema Operacional
 .DS_Store
 Thumbs.db
+
+# pdf do projeto
+*.pdf
