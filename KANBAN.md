@@ -21,13 +21,11 @@ Este documento registra o planejamento, a rota de desenvolvimento, o status de c
 ### 🔹 Ciclo 2: Projeto Avaliativo Final — Microsserviço Preditivo com FastAPI (Semana 13)
 | 📋 Backlog | ⏳ Em Progresso | 🔍 Em Revisão / Validação | ✅ Concluído |
 | :--- | :--- | :--- | :--- |
-| **Passo 9**: Fase 1 - Verificação do Modelo & Métricas |✅ Concluído|
-| **Passo 10**: Fase 2 - Estrutura Modular da API |⏳ Em Progresso | 
-| **Passo 11**: Fase 3 - Ciclo de Vida (Lifespan RAM) 
-| **Passo 12**: Fase 4 - Validação Estrita (Pydantic) |✅ Concluído|
-| **Passo 13**: Fase 5 - Endpoints (`/health`, `/predict`) | | | |
-| **Passo 14**: Atualização README.md & Roteiro Vídeo | | | |
-| **Passo 15**: GitFlow Final (Merge develop -> main) | | | |
+| **Passo 15**: GitFlow Final (Merge develop -> main) | **Passo 14**: Roteiro Vídeo (Item 5.4) | | **Passo 9**: Fase 1 - Verificação do Modelo & Métricas |
+| | | | **Passo 10**: Fase 2 - Estrutura Modular da API |
+| | | | **Passo 11**: Fase 3 - Ciclo de Vida (Lifespan RAM) |
+| | | | **Passo 12**: Fase 4 - Validação Estrita (Pydantic) |
+| | | | **Passo 13**: Fase 5 - Endpoints (`/health`, `/predict`) |
 
 ---
 
@@ -130,45 +128,45 @@ Este documento registra o planejamento, a rota de desenvolvimento, o status de c
 
 ---
 
-### [ ] Passo 10: Fase 2 (API) - Estrutura Modular da API FastAPI
-- [ ] Criar pacote da API desacoplado em camadas (`schemas/`, `services/`, `routers/` e `main.py`).
-- [ ] Isolar responsabilidades: desacoplar protocolos de rede HTTP das operações matemáticas de Machine Learning.
-- [ ] Atualizar `requirements.txt` com dependências de produção (`fastapi`, `uvicorn`, `pydantic`, `httpx`).
+### [x] Passo 10: Fase 2 (API) - Estrutura Modular da API FastAPI
+- [x] Criar pacote da API desacoplado em camadas (`schemas/`, `services/`, `routers/` e `main.py`).
+- [x] Isolar responsabilidades: desacoplar protocolos de rede HTTP das operações matemáticas de Machine Learning.
+- [x] Atualizar `requirements.txt` com dependências de produção (`fastapi`, `uvicorn`, `pydantic`, `httpx`).
 - **Branch**: `feature/estrutura-api-fastapi`
-- **Commit Planejado**: `implementa estrutura modular da api fastapi`
-- **Status**: ⏳ Em Progresso
+- **Commit**: `implementa estrutura modular da api fastapi`
+- **Status**: ✅ Concluído
 
 ---
 
-### [ ] Passo 11: Fase 3 (API) - Ciclo de Vida e Carregamento Otimizado (Lifespan)
-- [ ] Implementar `@asynccontextmanager` com gerenciador de contexto `lifespan` no FastAPI.
-- [ ] Carregar o artefato do modelo em memória RAM **uma única vez** durante o startup da aplicação.
-- [ ] Garantir conformidade com a proibição técnica do edital: **não ler o disco durante requisições preditivas**.
-- [ ] Disponibilizar o modelo carregado no estado global da aplicação (`app.state.model`).
+### [x] Passo 11: Fase 3 (API) - Ciclo de Vida e Carregamento Otimizado (Lifespan)
+- [x] Implementar `@asynccontextmanager` com gerenciador de contexto `lifespan` no FastAPI.
+- [x] Carregar o artefato do modelo em memória RAM **uma única vez** durante o startup da aplicação.
+- [x] Garantir conformidade com a proibição técnica do edital: **não ler o disco durante requisições preditivas**.
+- [x] Disponibilizar o modelo carregado no estado global da aplicação (`app.state.predictor_service`).
 - **Branch**: `feature/estrutura-api-fastapi`
-- **Commit Planejado**: `implementa ciclo de vida lifespan para carregamento do modelo em memoria ram`
-- **Status**: 📋 Backlog
+- **Commit**: `implementa ciclo de vida lifespan para carregamento do modelo em memoria ram`
+- **Status**: ✅ Concluído
 
 ---
 
-### [ ] Passo 12: Fase 4 (API) - Modelagem e Validação Estrita de Dados (Pydantic)
+### [x] Passo 12: Fase 4 (API) - Modelagem e Validação Estrita de Dados (Pydantic)
 - [x] Criar esquemas em `schemas/prediction.py` e `schemas/health.py` herdando de `pydantic.BaseModel`.
 - [x] Configurar tipagem estática e restrições detalhadas com `Field` (vetor de 784 pixels, limites com `ge=0.0`, `le=1.0` ou escala 0 a 255).
 - [x] Implementar esquema de resposta tipada (`prediction`, `confidence`, `probabilities`, `inference_time_ms`).
 - [x] Validar retorno automático de **HTTP 422 Unprocessable Entity** para dados de entrada corrompidos ou fora dos limites.
 - **Branch**: `feature/estrutura-api-fastapi`
-- **Commit Planejado**: `implementa validacao estrita de dados com schemas pydantic`
-- **Status**: 📋 Backlog
+- **Commit**: `implementa validacao estrita de dados com schemas pydantic`
+- **Status**: ✅ Concluído
 
 ---
 
-### [ ] Passo 13: Fase 5 (API) - Implementação de Endpoints e Tratamento de Erros
-- [ ] Criar roteador de monitoramento: `GET /health` respondendo HTTP 200 OK com status de integridade e presença do modelo na RAM.
-- [ ] Criar roteador de inferência: `POST /predict` (e `/v1/predict`) consumindo o schema validado, invocando o service e devolvendo HTTP 200 OK.
-- [ ] Implementar tratamento semântico de erros com `HTTPException` e fallbacks (HTTP 200, 400, 422, 500) evitando qualquer crash na aplicação.
+### [x] Passo 13: Fase 5 (API) - Implementação de Endpoints e Tratamento de Erros
+- [x] Criar roteador de monitoramento: `GET /health` respondendo HTTP 200 OK com status de integridade e presença do modelo na RAM.
+- [x] Criar roteador de inferência: `POST /predict` (e `/v1/predict`) consumindo o schema validado, invocando o service e devolvendo HTTP 200 OK.
+- [x] Implementar tratamento semântico de erros com `HTTPException` e fallbacks (HTTP 200, 400, 422, 500) evitando qualquer crash na aplicação.
 - **Branch**: `feature/estrutura-api-fastapi`
-- **Commit Planejado**: `implementa endpoints health e predict com tratamento semantico de erros`
-- **Status**: 📋 Backlog
+- **Commit**: `implementa endpoints health e predict com tratamento semantico de erros`
+- **Status**: ✅ Concluído
 
 ---
 
