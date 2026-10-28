@@ -21,8 +21,10 @@ Este documento registra o planejamento, a rota de desenvolvimento, o status de c
 ### 🔹 Ciclo 2: Projeto Avaliativo Final — Microsserviço Preditivo com FastAPI (Semana 13)
 | 📋 Backlog | ⏳ Em Progresso | 🔍 Em Revisão / Validação | ✅ Concluído |
 | :--- | :--- | :--- | :--- |
-| **Passo 11**: Fase 3 - Ciclo de Vida (Lifespan RAM) | **Passo 10**: Fase 2 - Estrutura Modular da API | | **Passo 9**: Fase 1 - Verificação do Modelo & Métricas |
-| **Passo 12**: Fase 4 - Validação Estrita (Pydantic) | | | |
+| **Passo 9**: Fase 1 - Verificação do Modelo & Métricas |✅ Concluído|
+| **Passo 10**: Fase 2 - Estrutura Modular da API |⏳ Em Progresso | 
+| **Passo 11**: Fase 3 - Ciclo de Vida (Lifespan RAM) 
+| **Passo 12**: Fase 4 - Validação Estrita (Pydantic) |✅ Concluído|
 | **Passo 13**: Fase 5 - Endpoints (`/health`, `/predict`) | | | |
 | **Passo 14**: Atualização README.md & Roteiro Vídeo | | | |
 | **Passo 15**: GitFlow Final (Merge develop -> main) | | | |
@@ -150,10 +152,10 @@ Este documento registra o planejamento, a rota de desenvolvimento, o status de c
 ---
 
 ### [ ] Passo 12: Fase 4 (API) - Modelagem e Validação Estrita de Dados (Pydantic)
-- [ ] Criar esquemas em `schemas/prediction.py` e `schemas/health.py` herdando de `pydantic.BaseModel`.
-- [ ] Configurar tipagem estática e restrições detalhadas com `Field` (vetor de 784 pixels, limites com `ge=0.0`, `le=1.0` ou escala 0 a 255).
-- [ ] Implementar esquema de resposta tipada (`prediction`, `confidence`, `probabilities`, `inference_time_ms`).
-- [ ] Validar retorno automático de **HTTP 422 Unprocessable Entity** para dados de entrada corrompidos ou fora dos limites.
+- [x] Criar esquemas em `schemas/prediction.py` e `schemas/health.py` herdando de `pydantic.BaseModel`.
+- [x] Configurar tipagem estática e restrições detalhadas com `Field` (vetor de 784 pixels, limites com `ge=0.0`, `le=1.0` ou escala 0 a 255).
+- [x] Implementar esquema de resposta tipada (`prediction`, `confidence`, `probabilities`, `inference_time_ms`).
+- [x] Validar retorno automático de **HTTP 422 Unprocessable Entity** para dados de entrada corrompidos ou fora dos limites.
 - **Branch**: `feature/estrutura-api-fastapi`
 - **Commit Planejado**: `implementa validacao estrita de dados com schemas pydantic`
 - **Status**: 📋 Backlog
