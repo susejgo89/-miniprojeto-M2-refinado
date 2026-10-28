@@ -66,7 +66,7 @@
 | **Scikit-Learn** | `1.4.0+` | Métricas de validação, matrizes de confusão e pré-processamento. |
 | **OpenCV (`cv2`)** | `4.9.0+` | Visão computacional e alinhamento morfológico por centro de massa. |
 | **NumPy & Pandas** | `1.26+` / `2.2+` | Manipulação tensorial e matricial dos dados. |
-| **HTTPX** | `0.27.0+` | Cliente assíncrono para suíte de testes de integração da API. |
+| **HTTPX & Pytest** | `0.27.0+` / `8.0.0+` | Cliente assíncrono e framework para suíte de testes automatizados da API. |
 
 ### 1.4 Instruções de Instalação e Execução
 
@@ -101,6 +101,11 @@ uvicorn main:app --reload --host 0.0.0.0 --port 8000
 - A API estará disponível em: `http://localhost:8000`
 - Documentação interativa Swagger UI: **`http://localhost:8000/docs`**
 - Documentação alternativa Redoc: `http://localhost:8000/redoc`
+
+#### 5. Executar a Bateria de Testes Automatizados (Opcional)
+```bash
+pytest tests/ -v
+```
 
 ---
 
@@ -460,12 +465,16 @@ miniprojeto-m2-refinado/
 
 ## 📜 7. Git Flow e Histórico de Rastreabilidade
 
-O projeto adota o modelo **Git Flow** profissional:
+O projeto adota o modelo **Git Flow** profissional em conformidade com o Item 5.3 do edital:
 - `main`: Branch de código consolidado em produção.
-- `develop`: Branch de integração contínua.
-- `feature/*`: Branches dedicadas para cada ciclo e funcionalidade técnica (não excluídas após o merge):
-  - `feature/estrutura-api-fastapi`: Arquitetura em camadas, ciclo de vida Lifespan, validação Pydantic e endpoints REST.
-  - Branches históricas do Ciclo 1 (`feature/fase1-eda`, `feature/fase2-preprocessamento`, etc.).
+- `develop`: Branch de integração contínua das funcionalidades.
+- `feature/*`: Branches dedicadas para cada etapa e funcionalidade técnica (preservadas após o merge):
+  - `feature/estrutura-api-fastapi`: Integração da arquitetura modular da API REST.
+  - `feature/fase2-service-inferencia`: Camada de serviço e inferência matemática desacoplada (`api/services/`).
+  - `feature/fase3-lifespan-main`: Ponto de entrada e gerenciamento de ciclo de vida em memória RAM (`main.py`).
+  - `feature/fase4-schemas-pydantic`: Contratos de entrada e saída com validação estrita (`api/schemas/`).
+  - `feature/fase5-routers-endpoints`: Endpoints padronizados `/health` e `/predict` (`api/routers/`).
+  - `feature/testes-e-documentacao`: Suíte de testes automatizados (`tests/test_api.py`), `README.md` e `KANBAN.md`.
 
 ---
 

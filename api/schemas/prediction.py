@@ -3,8 +3,21 @@ Módulo de Esquemas Pydantic para Inferência Preditiva (MNIST).
 Atende aos requisitos da Fase 4: Tipagem estrita, restrições com Field e validação contra HTTP 422.
 """
 
+import json
+import os
 from typing import Dict, List
 from pydantic import BaseModel, Field, field_validator
+
+
+def _carregar_exemplo_digito_7() -> List[float]:
+    """Carrega o vetor real de 784 pixels do dígito 7 para o exemplo interativo no Swagger (/docs)."""
+    caminho = os.path.join(os.path.dirname(__file__), "..", "..", "data", "exemplo_digito_7.json")
+    try:
+        with open(caminho, "r", encoding="utf-8") as f:
+            dados = json.load(f)
+            return [round(float(x) / 255.0, 4) for x in dados["features"]]
+    except Exception:
+        return [0.0] * 784
 
 
 class MNISTInputSchema(BaseModel):
@@ -14,9 +27,11 @@ class MNISTInputSchema(BaseModel):
     """
     features: List[float] = Field(
         ...,
-        description="Lista contendo exatamente 784 intensidades de pixels correspondentes à imagem 28x28 achatada.",
+        min_length=784,
+        max_length=784,
+        description="Lista contendo exatamente 784 intensidades de pixels correspondentes à imagem 28x28 achatada (valores entre 0.0 e 255.0).",
         json_schema_extra={
-            "example": [0.0] * 784  # Vetor de exemplo para documentação interativa Swagger
+            "example": _carregar_exemplo_digito_7()  # Exemplo real do dígito 7 pronto para testar no Swagger
         }
     )
 

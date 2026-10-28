@@ -21,11 +21,12 @@ Este documento registra o planejamento, a rota de desenvolvimento, o status de c
 ### 🔹 Ciclo 2: Projeto Avaliativo Final — Microsserviço Preditivo com FastAPI (Semana 13)
 | 📋 Backlog | ⏳ Em Progresso | 🔍 Em Revisão / Validação | ✅ Concluído |
 | :--- | :--- | :--- | :--- |
-| **Passo 15**: GitFlow Final (Merge develop -> main) | **Passo 14**: Roteiro Vídeo (Item 5.4) | | **Passo 9**: Fase 1 - Verificação do Modelo & Métricas |
+| | **Passo 15**: Merge Final (`develop` -> `main` após vídeo) | **Passo 14**: Gravação do Vídeo (Item 5.4) | **Passo 9**: Fase 1 - Verificação do Modelo & Métricas |
 | | | | **Passo 10**: Fase 2 - Estrutura Modular da API |
 | | | | **Passo 11**: Fase 3 - Ciclo de Vida (Lifespan RAM) |
 | | | | **Passo 12**: Fase 4 - Validação Estrita (Pydantic) |
 | | | | **Passo 13**: Fase 5 - Endpoints (`/health`, `/predict`) |
+| | | | **Passo 14**: Documentação Oficial no `README.md` |
 
 ---
 
@@ -170,38 +171,44 @@ Este documento registra o planejamento, a rota de desenvolvimento, o status de c
 
 ---
 
-### [ ] Passo 14: Documentação no README.md & Roteiro de Gravação do Vídeo
-- [ ] Atualizar `README.md` contendo todos os 6 tópicos obrigatórios do item 5.2 do edital:
+### [x] Passo 14: Documentação no README.md & Roteiro de Gravação do Vídeo
+- [x] Atualizar `README.md` contendo todos os 6 tópicos obrigatórios do item 5.2 do edital:
   1. Nome e Resumo do Projeto (problema de negócio).
   2. Origem do Modelo (indicação da base MNIST do Módulo 2).
   3. Tecnologias Utilizadas e versões exatas.
   4. Instruções de Instalação e Execução (`venv`, `requirements.txt`, `uvicorn`).
   5. Documentação da API com payloads JSON de exemplo e Swagger `/docs`.
   6. Seção para link do vídeo de evidência no Google Drive.
-- [ ] Elaborar script completo para o vídeo de até 10 minutos respondendo ponto a ponto as 6 perguntas do item 5.4.
+- [x] Elaborar script completo para o vídeo de até 10 minutos respondendo ponto a ponto as 6 perguntas do item 5.4.
 - **Branch**: `feature/estrutura-api-fastapi`
-- **Commit Planejado**: `atualiza readme com documentacao da api rest e roteiro de apresentacao`
-- **Status**: 📋 Backlog
+- **Commit**: `atualiza readme com documentacao da api rest e roteiro de apresentacao`
+- **Status**: ✅ Concluído (aguardando apenas gravação do vídeo final)
 
 ---
 
 ### [ ] Passo 15: Conclusão GitFlow e Merges Finais
-- [ ] Executar bateria de testes com `pytest` e `httpx` cobrindo `/health`, `/predict` (válido) e `/predict` (inválido 422).
-- [ ] Realizar merge da branch `feature/estrutura-api-fastapi` para a branch `develop`.
-- [ ] Realizar merge da branch `develop` para a branch `main` mantendo histórico completo e branches preservadas.
+- [x] Executar bateria de testes com `pytest` e `httpx` cobrindo `/health`, `/predict` (válido) e `/predict` (inválido 422).
+- [x] Realizar merge da branch `feature/estrutura-api-fastapi` para a branch `develop`.
+- [ ] Realizar merge da branch `develop` para a branch `main` mantendo histórico completo e branches preservadas (após inserção do link do vídeo final).
 - **Branch**: `feature/estrutura-api-fastapi` -> `develop` -> `main`
 - **Commit Planejado**: `merge: integra microsservico fastapi na branch principal`
-- **Status**: 📋 Backlog
+- **Status**: ⏳ Em Progresso
 
 ---
 
 ## 📜 Histórico de Commits e Rastreabilidade
 
-| Data / Hora | Branch | Mensagem do Commit | Descrição da Entrega |
-| :--- | :--- | :--- | :--- |
-| 31/08/2026 | `main` | `configura estrutura inicial do projeto e dependencias` | Estrutura base, `.gitignore` e `requirements.txt`. |
-| 12/09/2026 | `main` | `feat: versao inicial do pipeline mnist refinado` | Notebooks, modelos treinados e assets do Ciclo 1. |
-| 26/10/2026 | `develop` | `cria branch develop a partir da main` | Inicialização do fluxo GitFlow para o projeto final (Semana 13). |
-| 26/10/2026 | `feature/estrutura-api-fastapi` | `atualiza kanban com planejamento do microsservico fastapi` | Planejamento completo dos passos 9 a 15 do Ciclo 2. |
+| Data / Hora | Branch | Hash | Mensagem do Commit | Descrição da Entrega |
+| :--- | :--- | :--- | :--- | :--- |
+| 31/08/2026 | `main` | `283c030` | `configura estrutura inicial do projeto e dependencias` | Estrutura base, `.gitignore` e `requirements.txt`. |
+| 12/09/2026 | `main` | `d853801` | `feat: versao inicial do pipeline mnist refinado` | Notebooks, modelos treinados e assets do Ciclo 1. |
+| 26/10/2026 | `develop` | `(branch)` | `cria branch develop a partir da main` | Inicialização do fluxo GitFlow para o projeto final (Semana 13). |
+| 27/10/2026 | `feature/estrutura-api-fastapi` | `3bc7a74` | `atualiza dependencias e documentacao base para api rest` | Inclusão de FastAPI, Pydantic, Uvicorn e planejamento. |
+| 27/10/2026 | `feature/estrutura-api-fastapi` | `83c79fd` | `implementa esquemas pydantic para validacao estrita de dados` | Esquemas MNISTInputSchema, MNISTOutputSchema e HealthCheckSchema (Fase 4). |
+| 28/10/2026 | `feature/estrutura-api-fastapi` | `b875717` | `implementa servico de inferencia matematica desacoplado` | Camada de serviço MNISTPredictorService desacoplada de HTTP (Fase 2). |
+| 28/10/2026 | `feature/estrutura-api-fastapi` | `7dea22c` | `implementa roteadores health e predict com tratamento de erros` | Endpoints GET /health e POST /predict com tratamento de exceções (Fase 5). |
+| 28/10/2026 | `feature/estrutura-api-fastapi` | `3825b0a` | `implementa ponto de entrada com ciclo de vida lifespan e exemplos de inferencia` | Arquivo main.py com lifespan para modelo em RAM e payloads JSON (Fase 3). |
+| 28/10/2026 | `feature/estrutura-api-fastapi` | `1c33b0c` | `adiciona suite de testes automatizados com pytest e atualiza kanban` | Testes automatizados cobrindo 200 OK e 422 Unprocessable Entity. |
+
 
 
