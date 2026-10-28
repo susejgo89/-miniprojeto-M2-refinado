@@ -21,12 +21,13 @@ Este documento registra o planejamento, a rota de desenvolvimento, o status de c
 ### 🔹 Ciclo 2: Projeto Avaliativo Final — Microsserviço Preditivo com FastAPI (Semana 13)
 | 📋 Backlog | ⏳ Em Progresso | 🔍 Em Revisão / Validação | ✅ Concluído |
 | :--- | :--- | :--- | :--- |
-| | **Passo 15**: Merge Final (`develop` -> `main` após vídeo) | **Passo 14**: Gravação do Vídeo (Item 5.4) | **Passo 9**: Fase 1 - Verificação do Modelo & Métricas |
+| | | | **Passo 9**: Fase 1 - Verificação do Modelo & Métricas |
 | | | | **Passo 10**: Fase 2 - Estrutura Modular da API |
 | | | | **Passo 11**: Fase 3 - Ciclo de Vida (Lifespan RAM) |
 | | | | **Passo 12**: Fase 4 - Validação Estrita (Pydantic) |
 | | | | **Passo 13**: Fase 5 - Endpoints (`/health`, `/predict`) |
-| | | | **Passo 14**: Documentação Oficial no `README.md` |
+| | | | **Passo 14**: Documentação `README.md` & Vídeo Oficial |
+| | | | **Passo 15**: GitFlow Final (Merge `develop` -> `main`) |
 
 ---
 
@@ -180,19 +181,20 @@ Este documento registra o planejamento, a rota de desenvolvimento, o status de c
   5. Documentação da API com payloads JSON de exemplo e Swagger `/docs`.
   6. Seção para link do vídeo de evidência no Google Drive.
 - [x] Elaborar script completo para o vídeo de até 10 minutos respondendo ponto a ponto as 6 perguntas do item 5.4.
+- [x] Inserir o link oficial do vídeo do Ciclo 2 no `README.md`.
 - **Branch**: `feature/estrutura-api-fastapi`
-- **Commit**: `atualiza readme com documentacao da api rest e roteiro de apresentacao`
-- **Status**: ✅ Concluído (aguardando apenas gravação do vídeo final)
+- **Commit**: `adiciona link oficial do video do ciclo 2 e do repositorio no readme`
+- **Status**: ✅ Concluído
 
 ---
 
-### [ ] Passo 15: Conclusão GitFlow e Merges Finais
+### [x] Passo 15: Conclusão GitFlow e Merges Finais
 - [x] Executar bateria de testes com `pytest` e `httpx` cobrindo `/health`, `/predict` (válido) e `/predict` (inválido 422).
 - [x] Realizar merge da branch `feature/estrutura-api-fastapi` para a branch `develop`.
-- [ ] Realizar merge da branch `develop` para a branch `main` mantendo histórico completo e branches preservadas (após inserção do link do vídeo final).
+- [x] Realizar merge da branch `develop` para a branch `main` mantendo histórico completo e branches preservadas.
 - **Branch**: `feature/estrutura-api-fastapi` -> `develop` -> `main`
-- **Commit Planejado**: `merge: integra microsservico fastapi na branch principal`
-- **Status**: ⏳ Em Progresso
+- **Commit**: `merge: integra microsservico fastapi na branch principal main`
+- **Status**: ✅ Concluído
 
 ---
 
@@ -209,6 +211,8 @@ Este documento registra o planejamento, a rota de desenvolvimento, o status de c
 | 28/10/2026 | `feature/estrutura-api-fastapi` | `7dea22c` | `implementa roteadores health e predict com tratamento de erros` | Endpoints GET /health e POST /predict com tratamento de exceções (Fase 5). |
 | 28/10/2026 | `feature/estrutura-api-fastapi` | `3825b0a` | `implementa ponto de entrada com ciclo de vida lifespan e exemplos de inferencia` | Arquivo main.py com lifespan para modelo em RAM e payloads JSON (Fase 3). |
 | 28/10/2026 | `feature/estrutura-api-fastapi` | `1c33b0c` | `adiciona suite de testes automatizados com pytest e atualiza kanban` | Testes automatizados cobrindo 200 OK e 422 Unprocessable Entity. |
+| 28/10/2026 | `feature/estrutura-api-fastapi` | `0a4068d` | `refina exemplo interativo do swagger e atualiza documentacao final` | Exemplo real do dígito 7 no Swagger e documentação final. |
+| 28/10/2026 | `develop` | `35bae16` | `merge: integra microsservico preditivo fastapi na branch develop` | Integração das features na branch develop. |
 
 
 

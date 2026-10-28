@@ -18,8 +18,11 @@
 
 ---
 
-### 🎥 [Clique aqui para assistir ao Vídeo de Apresentação Oficial (10 Minutos)](https://drive.google.com/file/d/18_wt3VQQnRbHpfVo5dy0sYqofmLoDPHl/view?usp=sharing) 🎬
-*(Link do Google Drive — Item 5.4 e 6 da Avaliação)*
+### 🎥 [Clique aqui para assistir ao Vídeo Oficial — Ciclo 2: Projeto Avaliativo Final do Módulo 2 (API FastAPI)](https://drive.google.com/file/d/1xNouZyTXLuahmbBkVQ0Lr04kcfQKC2fU/view?usp=sharing) 🎬
+*(Apresentação Final da Semana 13 — Microsserviço RESTful com FastAPI, Pydantic e Lifespan)*
+
+#### 📼 [Clique aqui para assistir ao Vídeo do Ciclo 1: Pipeline Experimental MNIST & Streamlit](https://drive.google.com/file/d/18_wt3VQQnRbHpfVo5dy0sYqofmLoDPHl/view?usp=sharing)
+*(Apresentação da Modelagem Preditiva, Benchmark e Visão Computacional)*
 
 ---
 
@@ -72,8 +75,8 @@
 
 #### 1. Clonar o Repositório e Navegar até a Pasta
 ```bash
-git clone https://github.com/susejgo89/miniprojeto-m2-mnist-ia.git
-cd miniprojeto-m2-mnist-ia
+git clone https://github.com/susejgo89/-miniprojeto-M2-refinado.git
+cd -miniprojeto-M2-refinado
 ```
 
 #### 2. Criar e Ativar o Ambiente Virtual
@@ -174,10 +177,12 @@ Ocorre automaticamente via Pydantic se o cliente enviar dimensão diferente de 7
 ---
 
 ### 1.6 Links das Evidências
-- 🎥 **Vídeo de Apresentação Oficial (Google Drive):**
-  [Clique aqui para assistir ao vídeo no Google Drive](https://drive.google.com/file/d/18_wt3VQQnRbHpfVo5dy0sYqofmLoDPHl/view?usp=sharing)
-  *(O vídeo cobre todos os 6 questionamentos técnicos exigidos no Item 5.4 da avaliação).*
-- 💻 **Repositório GitHub:** `https://github.com/susejgo89/miniprojeto-m2-mnist-ia`
+- 🎥 **Vídeo Oficial — Ciclo 2 (Projeto Avaliativo Final do Módulo 2 — API REST FastAPI):**
+  [Clique aqui para assistir ao vídeo do Ciclo 2 no Google Drive](https://drive.google.com/file/d/1xNouZyTXLuahmbBkVQ0Lr04kcfQKC2fU/view?usp=sharing)
+  *(Apresentação final da Semana 13 cobrindo os 6 questionamentos técnicos do Item 5.4 da avaliação).*
+- 📼 **Vídeo do Ciclo 1 (Projeto Anterior — Pipeline Experimental MNIST & Streamlit):**
+  [Clique aqui para assistir ao vídeo do Ciclo 1 no Google Drive](https://drive.google.com/file/d/18_wt3VQQnRbHpfVo5dy0sYqofmLoDPHl/view?usp=sharing)
+- 💻 **Repositório Oficial no GitHub:** [https://github.com/susejgo89/-miniprojeto-M2-refinado](https://github.com/susejgo89/-miniprojeto-M2-refinado)
 
 ---
 
@@ -382,8 +387,8 @@ O arquivo [src/app.py](src/app.py) implementa um dashboard profissional em **Dar
 
 ```bash
 # 1. Clone o repositório
-git clone https://github.com/susejgo89/miniprojeto-m2-mnist-ia.git
-cd miniprojeto-m2-mnist-ia
+git clone https://github.com/susejgo89/-miniprojeto-M2-refinado.git
+cd -miniprojeto-M2-refinado
 
 # 2. Crie e ative o ambiente virtual
 python3 -m venv .venv
